@@ -3,7 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/fireba
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCBPef2XxHf4dXJ9FZrBgqdbahls7bEdkY",
+  apiKey: "***********************",
   authDomain: "verificador-68675.firebaseapp.com",
   projectId: "verificador-68675",
   storageBucket: "verificador-68675.firebasestorage.app",
