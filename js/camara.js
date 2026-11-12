@@ -22,14 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
     camaraContenedor.classList.remove('oculto');
 
     if (!video.srcObject) {
-      // Intentar abrir cámara trasera
+      //  cámara trasera
       navigator.mediaDevices.getUserMedia({ video: { facingMode: { exact: "environment" } } })
         .then((stream) => {
           streamGlobal = stream;
           video.srcObject = stream;
         })
         .catch(() => {
-          // Si no funciona, abrir cámara frontal como fallback
+          // cámara frontal como fallback
           navigator.mediaDevices.getUserMedia({ video: true })
             .then((stream) => {
               streamGlobal = stream;
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
     accionesDiv.classList.add('oculto');
     camaraContenedor.classList.add('oculto');
 
-    // Detener cámara si está activa (por si vino de captura)
+    // Detener cámara si está activa (por si vino de captura xd)
     if (streamGlobal) {
       streamGlobal.getTracks().forEach(track => track.stop());
       streamGlobal = null;
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (coincidencias && coincidencias.length > 0) {
         const cedula = coincidencias[0];
-        mensajeResultado.textContent = `✅ La cédula ${cedula} se guardó.`;
+        mensajeResultado.textContent = ` La cédula ${cedula} se guardó.`;
 
         try {
           await db.collection("cedulas").add({
@@ -142,17 +142,17 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log("Cédula guardada en Firestore");
         } catch (error) {
           console.error("Error al guardar en Firestore:", error);
-          mensajeResultado.textContent = '❌ Error al guardar la cédula.';
+          mensajeResultado.textContent = ' Error al guardar la cédula.';
         }
 
         nuevoRegistroBtn.classList.remove('oculto');
       } else {
-        mensajeResultado.textContent = '⚠️ No se encontró la cédula profesional.';
+        mensajeResultado.textContent = ' No se encontró la cédula profesional.';
         nuevoRegistroBtn.classList.remove('oculto');
       }
     }).catch((err) => {
       console.error('Error al procesar la imagen: ', err);
-      mostrarResultadoError('❌ Error al procesar la imagen.');
+      mostrarResultadoError(' Error al procesar la imagen.');
     });
   }
 });
